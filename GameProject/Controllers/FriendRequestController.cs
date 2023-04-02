@@ -59,7 +59,7 @@ namespace GameProject.Controllers
                     return RedirectToAction("Create");
                 }
 
-                if (sender.Friends.Where(fr => fr.Id == friendRequestViewModel.ReceiverUsername) != null)
+                if (sender.Friends.Where(fr => fr.UserName == friendRequestViewModel.ReceiverUsername).Any())
                 {
                     TempData["error"] = "The request to this user was already sent!";
                     return RedirectToAction("Create");
