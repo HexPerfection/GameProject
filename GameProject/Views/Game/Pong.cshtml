@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Pong";
+}
+<style>
+    canvas {
+        position: absolute;
+        left: 0%;
+        top: 15%;
+        border: 5px solid black;
+    }
+
+    #scoreText {
+        position: absolute;
+        left: 50%;
+    }
+</style>
+
+<div id="scoreText">Score: 0</div>
+<canvas id="gameCanvas"></canvas>
+
+@section scripts {
+    <script src="~/js/pong.js"></script>
+}

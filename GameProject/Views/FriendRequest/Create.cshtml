@@ -1,0 +1,16 @@
+﻿@model GameProject.Models.FriendRequestViewModel
+
+<h1>Send Friend Request</h1>
+
+<form asp-action="Create">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="ReceiverUsername">Username</label>
+        <input asp-for="ReceiverUsername" class="form-control" required/>
+        <span asp-validation-for="ReceiverUsername" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Request</button>
+</form>
+<div class="text-danger">@TempData["error"]</div>

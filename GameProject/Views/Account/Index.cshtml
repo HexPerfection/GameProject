@@ -1,0 +1,69 @@
+﻿@model GameProject.Models.User
+
+<h1>@Model.UserName's Profile</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Your Highscores</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Maze</th>
+                        <th>Pong</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (var highscore in Model.HighScores)
+                        {
+                            <td>@highscore.Score</td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h2>Friends' Highscores</h2>
+            @if (Model.Friends.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Maze</th>
+                            <th>Pong</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var id = 1;
+                            foreach (var friend in Model.Friends.OrderBy(f => f.HighScores.FirstOrDefault(h => h.GameId == 1)).ThenBy(f => f.HighScores.FirstOrDefault(h => h.GameId == 2)))
+                            {
+                                <tr>
+                                    <td>@(id)</td>
+                                    <td>@friend.UserName</td>
+                                    @foreach (var highscore in friend.HighScores)
+                                    {
+                                        <td>@highscore.Score</td>
+                                    }
+                                </tr>
+                                id++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            } else
+            {
+                <div>You currently have no friends</div>
+            }
+            <a asp-action="Index" asp-controller="FriendRequest">View pending friend requests</a>
+            <br />
+            <a asp-action="Create" asp-controller="FriendRequest">Add new friends</a>
+        </div>
+    </div>
+</div>
+
+
+

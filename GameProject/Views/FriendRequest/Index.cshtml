@@ -1,0 +1,32 @@
+﻿@model List<GameProject.Models.FriendRequest>
+@inject Microsoft.AspNetCore.Identity.UserManager<User> usermanager
+
+<h1>Pending Friend Requests</h1>
+
+@if (Model.Count() == 0)
+{
+    <p>You have no pending friend requests.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sender</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var request in Model)
+            {
+                <tr>
+                    <td>@await usermanager.FindByIdAsync(request.SenderId)</td>
+                    <td>
+                        <a asp-action="Accept" asp-route-id="@request.Id" class="btn btn-success">Accept</a>
+                        <a asp-action="Decline" asp-route-id="@request.Id" class="btn btn-danger">Decline</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

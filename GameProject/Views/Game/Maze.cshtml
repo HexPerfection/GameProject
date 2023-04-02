@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Maze";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Maze Game</title>
+    <style>
+        canvas {
+            position: absolute;
+            top: 15%;
+            border: 2px solid black;
+
+        }
+
+        #timer {
+            position: absolute;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">00:00</div>
+    <canvas id="maze-canvas" width="1200" height="600"></canvas>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/maze.js"></script>
+</body>
+</html>

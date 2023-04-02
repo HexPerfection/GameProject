@@ -1,0 +1,50 @@
+@font-face {
+    font-family: Poppins;
+    src: url("../font/Poppins-Medium.ttf");
+}
+
+* {
+    font-family: Poppins;
+}
+
+
+html {
+    font-size: 14px; 
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus{
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+a.nav-link:hover, button.nav-link:hover {
+    background-color: #D0BCD5;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #534B62;
+}
+
+.navbar .navbar-collapse ul li * {
+    color: aliceblue;
+}
+
+.navbar {
+    background-color: #1B1725
+}
+
+.navbar-brand {
+    color: #DBD3D8;
+}
+
